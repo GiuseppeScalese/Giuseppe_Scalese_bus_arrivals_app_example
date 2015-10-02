@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Bus Arrivals App</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <!-- importing custom css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    
+	<!-- Internet Explorer prior than version 9 doesn't support the new elements introduced in HTML5. Including the below script I enable it  -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+	<!-- Internet Explorer 8 or older versions doesn't support CSS3 media queries. I enable it by importing css3-mediaqueries.js Javascript file. -->
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->  
+	 
+	 <!-- importing Google library -->
+	 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKoUwfevO7ZSyuSvjSXJk2g965FgSJitA"></script>
+
+	 <!-- importing jquery library -->
+	 <script type="text/javascript" src="./js/jquery-1.11.2.min.js" ></script>
+
+	 <!-- importing custom script file -->
+	 <script type="text/javascript" src="./js/function.js" ></script> 
+
+</head>
+
+<body>
+	<div id="map-canvas">
+    </div>
+
+    <div class="search">
+      <select id="bus-stop" name="bust-stop-list">
+       <option class="option-item" disabled>Select your bus stop here or on the map</option>
+      </select> 
+    </div>
+
+    <div id="overlay-wrapper">    
+	    <div id="overlay-content-box"> 	
+		</div>
+	</div>
+
+	<div class="errorLoadingData"><div>
+</body>
+</html>

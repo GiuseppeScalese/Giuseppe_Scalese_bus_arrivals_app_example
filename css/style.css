@@ -1,0 +1,413 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color:#ffffff;
+  font-family:Verdana, Arial, Geneva, sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a, u {
+    text-decoration: none;
+    color:#606768;
+    font-family:Verdana, Arial, Geneva, sans-serif;
+}
+
+a {
+  outline : none;
+}
+
+a img {
+  outline : none;
+}
+
+img {
+  border : 0;
+}
+
+a:hover {
+  cursor:pointer;
+  color: #e9474b;
+  
+  -webkit-transition: color 0.4s ease,text-decoration 0.4s ease ;
+  -moz-transition: color 0.4s ease,text-decoration 0.4s ease ;
+  -o-transition: color 0.4s ease,text-decoration 0.4s ease ;
+  -ms-transition: color 0.4s ease,text-decoration 0.4s ease ;
+  transition: color 0.4s ease, text-decoration 0.4s ease ;
+}
+
+
+/* Bus arrivals css */
+
+ html, body, #map-canvas {
+  height: 97%;
+}
+
+ #map-canvas { 
+  margin: 0; padding: 0;
+}
+
+ #bus-stop{
+  width: 100%;
+  padding-left:40px;
+  padding-right: 10px;
+  margin: 0;
+  color:#5b0000;
+  cursor:pointer;
+  font-size: 14px;
+  background: transparent;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 1px 1px 1px #fff;
+  line-height: 1.2em;
+ }
+
+.search{
+  width: 100%;
+  overflow: hidden;
+  background: url(../images/bus_marker_img.png) no-repeat left #ffffff;
+  background-position: 1%; 
+  position: fixed;
+  z-index: 99;
+  height: 9%;
+}
+
+ .option-item{
+ 	font-family: Arial;
+ 	font-size: 16px;
+ }
+
+ #overlay-wrapper{
+  display: none;
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom:0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .75);
+  z-index: 100;
+}
+
+#overlay-content-box{
+  width: 75%;
+  height: 80%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 201;
+
+  background-color: #e5e5e5;
+  padding:25px;
+
+  background: rgba(212,228,239,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(199,199,199,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(212,228,239,1)), color-stop(100%, rgba(199,199,199,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(199,199,199,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(199,199,199,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(212,228,239,1) 0%, rgba(199,199,199,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(212,228,239,1) 0%, rgba(199,199,199,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#c7c7c7', GradientType=1 );
+
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+#iconClose{
+  background:url(../images/close_32.png) left top no-repeat; 
+  width:32px; 
+  height:32px;
+  float: right;
+}
+
+.headerItem{
+  font-size: 20px;
+  line-height: 30px;
+  padding-left: 5px;
+  color: #000000;
+  width: 90%;
+  float: left;
+  display: inline;
+}
+
+.infowindowHeader{
+  font-size: 15px;
+  line-height: 20px;
+  padding-left: 2px;
+  color: #000000;
+}
+
+.subItemInfoWindow{
+  font-size: 14px;
+  line-height: 17px;
+  display: block;
+  color: #333333;
+  padding-top: 5px;
+}
+
+.subItemInfoWindow.last{
+  padding-bottom: 5px;
+}
+
+.subItem.arrivals{
+  padding-top: 15px;
+}
+
+.subItem{
+  font-size: 15px;
+  line-height: 22px;
+  display: block;
+  color: #333333;
+  padding-top: 7px;
+}
+
+.subItem b, .subItemInfoWindow b{
+  font-weight: bold;
+}
+
+.subItemInfoWindow.first{
+  padding-top: 10px;
+} 
+
+.subItem.infoItem{
+  font-size: 12px;
+  line-height: 12px;
+  padding-top: 9px;
+}
+
+.subItem.infoItem p{
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.subItem.last{
+  padding-bottom: 7px;
+}
+
+.content-item-list{
+  overflow: auto;
+}
+
+.content-item-list li{
+  font-size: 16px;
+  line-height: 24px;
+  display: block;
+  color: #5b0000;
+  padding-bottom: 7px;
+  overflow: auto;
+}
+
+.content-item-list li:first-child{
+  padding-top: 4px;
+}
+
+.iconBus{
+  background:url(../images/bus_marker_img.png) left top no-repeat; 
+  width:25px; 
+  height:25px;
+  float: left;
+  display: inline;
+}
+
+.busNumber{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.noBusErrorMessage{
+  font-size: 19px;
+  color: #d41111;
+  text-align: center;
+  padding: 45px 20px 20px 20px;
+}
+
+.errorLoadingData{
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 55%;
+  height: 30%;
+  top: 30%;
+  font-size: 15px;
+  color: red;
+  left: 18%;
+  padding: 20px;
+  line-height: 23px;
+  overflow: auto;
+}
+
+.errorLoadingData p{
+  padding-top: 5px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.indexContainer, .arrivalInfoContainer{
+  float: left;
+  display: inline;
+}
+
+.indexContainer{
+  width: 4%;
+}
+
+.arrivalInfoContainer{
+  width: 96%;
+}
+
+.busStopHeaderContainer{
+  overflow: auto;
+  width: 100%;
+  position: relative;
+  top: 0px;
+}
+
+.iconCloseBox{
+  float: right;
+  display: inline;
+  width: 35px;
+}
+
+
+/* Media Queries */
+@media screen and (min-width: 480px) and  (max-width: 980px) {
+
+  .content-item-list li{
+    font-size: 14px;
+    line-height: 22px;
+    padding-bottom: 10px;
+  }
+
+  .headerItem{
+    padding-left: 12px;
+    font-size: 19px;
+    width: 80%;
+  }
+
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+
+  .content-item-list li{
+    font-size: 13px;
+    line-height: 18px;
+    padding-bottom: 10px;
+  }
+
+  #overlay-content-box{
+    padding: 35px;
+  }
+
+  .headerItem{
+    padding-left: 12px;
+    font-size: 19px;
+    width: 68%;
+  }
+
+  .subItem{
+    padding-top: 5px;
+    font-size: 13px;
+    line-height: 21px;
+  }
+
+  .subItem.arrivals{
+    padding-top: 10px;
+  }
+
+  .subItem.infoItem{
+    line-height: 15px;
+    font-size: 11px;
+  }
+
+  .busNumber{
+    font-size: 14px;
+  }
+
+  .noBusErrorMessage{
+   font-size: 17px;
+   line-height: 25px;
+  }
+
+  .errorLoadingData{
+   font-size: 12px; 
+   padding: 15px;
+   line-height: 17px;
+ }
+
+  .errorLoadingData p{
+   font-size: 10px;
+   line-height: 13px;
+ }
+
+  .subItemInfoWindow{
+    font-size: 12px;
+  }
+
+  .indexContainer{
+    width: 8%;
+  }
+
+  .arrivalInfoContainer{
+    width: 92%;
+  }
+
+  #bus-stop{
+    font-size: 14px;
+  }
+
+}
+
+
+
+
+
+
+
+
